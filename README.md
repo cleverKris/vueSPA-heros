@@ -18,7 +18,7 @@ npm run build
 json-server --watch db.json --port 3003
 ```
 
-## Updata
+## Update
 
 ``` bash
 # 5.30
