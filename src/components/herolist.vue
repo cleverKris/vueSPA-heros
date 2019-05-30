@@ -35,26 +35,27 @@
 
 <script>
   //引入axios
-  import axios from 'axios'
+  // import axios from 'axios'
+
 
   export default {
     data: function () {
       return {
-        url: 'http://localhost:3003/heros', //请求的路径
+        url: '/heros', //请求的路径
         herosList: [] //英雄数据
       };
     },
     methods: {
       //1.获取所有英雄数据
       getHeroData() {
-        axios.get(this.url).then(result => {
+        this.$http.get(this.url).then(result => {
           this.herosList = result.data;
         })
       },
       //2.完成删除功能
       del(id) {
         if (confirm('您确定要删除吗')) {
-          axios.delete(`${this.url}/${id}`).then(result => {
+          this.$http.delete(`${this.url}/${id}`).then(result => {
             //重新渲染英雄数据
             this.getHeroData();
           })

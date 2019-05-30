@@ -20,12 +20,12 @@
 
 <script>
   //引入axios
-  import axios from 'axios'
+  // import axios from 'axios'
 
   export default {
     data: function () {
       return {
-        url: `http://localhost:3003/heros`, //请求路径
+        url: `/heros`, //请求路径
         //将表单中的name和gender进行双向数据绑定
         name: '',
         gender: ''
@@ -35,7 +35,7 @@
     methods: {
       //为添加按钮绑定点击事件
       add() {
-        axios.post(this.url, {name: this.name, gender: this.gender}).then(result => {
+        this.$http.post(this.url, {name: this.name, gender: this.gender}).then(result => {
           //this.$router 路由对象
           this.$router.push('/herolist');//跳转回herolist
         })

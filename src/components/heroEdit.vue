@@ -19,12 +19,12 @@
 
 <script>
   //引入axios
-  import axios from 'axios'
+  // import axios from 'axios'
 
   export default {
     data: function () {
       return {
-        url: 'http://localhost:3003/heros',
+        url: '/heros',
         id: '', //要修改数据的id
         heroObj: {} //需要修改的英雄的信息
 
@@ -33,13 +33,16 @@
     methods: {
       //根据id 获取当前需要修改的英雄的数据
       getEditHero() {
-        axios.get(`${this.url}/${this.id}`).then(result => {
+        this.$http.get(`${this.url}/${this.id}`).then(result => {
           this.heroObj = result.data;
         })
       },
       //为修改按钮注册点击事件  put
       edit() {
-        axios.put(`${this.url}/${this.id}`, {name: this.heroObj.name, gender: this.heroObj.gender}).then(result => {
+        this.$http.put(`${this.url}/${this.id}`, {
+          name: this.heroObj.name,
+          gender: this.heroObj.gender
+        }).then(result => {
           //跳转到/herolist路由
           this.$router.push('/herolist');
         })

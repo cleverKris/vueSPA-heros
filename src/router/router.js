@@ -1,3 +1,5 @@
+// ** 仅负责设置路由 **
+
 //引入vue
 import Vue from 'vue'
 //引入vue-router
@@ -5,7 +7,7 @@ import VueRouter from 'vue-router'
 //使用
 Vue.use(VueRouter);
 
-//引入路由对应的组件
+//** 引入路由对应的组件 **
 import herolist from '../components/herolist';
 import foo from '../components/foo';
 import bar from '../components/bar';

@@ -2,6 +2,14 @@
 import Vue from 'vue'
 //引入router
 import router from './router/router'
+//统一引入axios
+import axios from 'axios'
+//如果要让vue实例可以使用axios 必须将axios添加到vue的实例中
+Vue.prototype.$http = axios;//约定俗成 vue-resource
+
+//统一设置axios的请求路径
+axios.defaults.baseURL = 'http://localhost:3003/';
+
 //引入App
 import App from './App.vue'
 
