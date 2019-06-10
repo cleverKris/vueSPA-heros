@@ -21,7 +21,7 @@ json-server --watch db.json --port 3003
 ## Update
 
 ``` bash
-# 5.30
+# 补充：
   1. 优化了axios：
     1.1 在各个组件中，无需分别引入axios，在Vue构造函数的原型中添加一个$http(在vue-resource的方法名)方法，可以在每个组件(Vue实例化出来的对象)进行访问
     1.2 统一设置axios请求路径
